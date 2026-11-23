@@ -437,6 +437,51 @@
     *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
     .reveal{opacity:1;transform:none}
   }
+
+/* ---------- solution diagrams ---------- */
+.diagram-intro{max-width:780px;color:var(--paper-2);font-size:14px;margin:-18px 0 28px;line-height:1.9}
+.diagram-stack{display:grid;gap:22px}
+
+.bank-stage-label{display:flex;align-items:center;gap:12px;margin:15px 0 9px;color:var(--gold);font-size:11px;letter-spacing:.08em}
+.bank-stage-label i{height:1px;flex:1;background:linear-gradient(90deg,rgba(201,160,99,.45),transparent)}
+.bank-tag-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.bank-tag-card{border:1px solid rgba(143,174,155,.34);background:rgba(143,174,155,.075);border-radius:10px;padding:13px;text-align:center}
+.bank-tag-card b{display:block;color:var(--paper);font-size:13px;margin-bottom:4px}
+.bank-tag-card small{color:var(--paper-3);font-size:10.5px}
+.bank-merge{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:12px 0;padding:13px;border:1px dashed rgba(201,160,99,.38);border-radius:11px;background:rgba(201,160,99,.035);color:var(--paper-2);font-size:11px}
+.bank-merge b{color:var(--gold);font-size:19px;font-weight:500}
+.bank-merge i{flex-basis:100%;text-align:center;color:var(--gold-bright);font-style:normal;font-size:11px}
+.bank-outcomes .diagram-node{min-height:78px}
+@media(max-width:760px){.bank-tag-grid{grid-template-columns:1fr}.bank-merge{gap:8px}.bank-merge span{flex-basis:100%;text-align:center}}
+.diagram-panel{border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012));border-radius:18px;padding:clamp(18px,3vw,30px);overflow:hidden}
+.diagram-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:20px}
+.diagram-head h3{font:500 clamp(19px,2.4vw,25px)/1.4 var(--serif);margin:4px 0 5px}
+.diagram-head p{font-size:12.5px;color:var(--paper-3);max-width:620px}
+.diagram-kicker{font:10px var(--mono);letter-spacing:1.5px;color:var(--gold)}
+.diagram-chip{border:1px solid rgba(201,160,99,.32);border-radius:99px;padding:5px 10px;color:var(--gold-bright);font-size:11px;white-space:nowrap}
+.diagram-flow{display:flex;align-items:stretch;gap:9px;min-width:0}
+.diagram-node{flex:1;min-width:0;border:1px solid rgba(201,160,99,.25);background:rgba(201,160,99,.065);border-radius:11px;padding:13px 11px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:5px}
+.diagram-node strong{font-size:13px;color:var(--paper);font-weight:600;line-height:1.45}
+.diagram-node small{font-size:10.5px;color:var(--paper-3);line-height:1.55}
+.diagram-node.em{background:rgba(143,174,155,.09);border-color:rgba(143,174,155,.35)}
+.diagram-node.core{background:rgba(201,160,99,.14);border-color:rgba(201,160,99,.55)}
+.diagram-arrow{align-self:center;color:var(--gold);font:20px var(--mono);flex:0 0 auto}
+.diagram-lanes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-bottom:12px}
+.diagram-lane{border:1px solid var(--line);border-radius:10px;padding:11px;background:rgba(255,255,255,.018);text-align:center}
+.diagram-lane b{display:block;font-size:12px;color:var(--paper-2);margin-bottom:3px}
+.diagram-lane span{font-size:10px;color:var(--paper-3)}
+.diagram-sub{font-size:11px;color:var(--paper-3);margin:11px 0 0;line-height:1.7}
+.diagram-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;align-items:stretch}
+.diagram-step{position:relative;border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:10px;padding:14px 10px;min-width:0}
+.diagram-step:not(:last-child):after{content:'›';position:absolute;right:-8px;top:50%;transform:translate(50%,-50%);color:var(--gold);font:22px var(--mono);z-index:2}
+.diagram-step em{display:block;color:var(--gold);font:10px var(--mono);font-style:normal;margin-bottom:7px}
+.diagram-step b{display:block;font-size:12px;margin-bottom:5px}
+.diagram-step small{display:block;color:var(--paper-3);font-size:10px;line-height:1.55}
+.diagram-foot{border-top:1px solid var(--line-soft);margin-top:16px;padding-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+.diagram-foot span{font-size:10px;color:var(--paper-3);border:1px solid var(--line);padding:4px 8px;border-radius:99px}
+.diagram-note{font-size:10.5px;color:var(--paper-3);margin-top:18px;line-height:1.7}
+@media(max-width:760px){.diagram-flow{display:grid;grid-template-columns:1fr}.diagram-arrow{transform:rotate(90deg);justify-self:center;line-height:1}.diagram-lanes{grid-template-columns:repeat(2,minmax(0,1fr))}.diagram-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.diagram-step:not(:last-child):after{display:none}.diagram-head{display:block}.diagram-chip{display:inline-block;margin-top:10px}}
+
 </style>
 </head>
 <body>
@@ -450,10 +495,11 @@
   <nav class="topnav">
     <a href="#about">关于我</a>
     <a href="#capability">能力</a>
-    <a href="#featured">代表作</a>
+    <a href="#featured">代表项目</a>
+    <a href="#diagrams">方案图</a>
     <a href="#projects">项目库</a>
     <a href="#journey">历程</a>
-    <a href="#method">业务场景</a>
+    <a href="#method">工作方法</a>
     <a href="#contact">联系</a>
   </nav>
   <button class="save" id="saveCardTop" type="button" aria-label="保存电子名片">
@@ -466,6 +512,7 @@
   <button data-target="about"><span>关于我</span><i class="dot"></i></button>
   <button data-target="capability"><span>能力</span><i class="dot"></i></button>
   <button data-target="featured"><span>代表项目</span><i class="dot"></i></button>
+  <button data-target="diagrams"><span>方案图</span><i class="dot"></i></button>
   <button data-target="projects"><span>项目库</span><i class="dot"></i></button>
   <button data-target="journey"><span>历程</span><i class="dot"></i></button>
   <button data-target="method"><span>方法</span><i class="dot"></i></button>
@@ -715,6 +762,96 @@
       <button class="featured-card reveal" data-project="20"><span class="fc-no">CASE 05 / CONSUMER INSIGHT</span><h3>新品市场机会与消费者研究</h3><p>结合市场、竞品、价格带与消费者偏好研究，为新品属性和产品规划提供量化依据。</p><div class="fc-tags"><i>MaxDiff</i><i>联合分析</i><i>PSM</i></div><span class="fc-open">查看案例 ↗</span></button>
       <button class="featured-card reveal" data-project="24"><span class="fc-no">CASE 06 / AI APPLICATION</span><h3>AI 数据分析 Agent</h3><p>从业务提问到语义识别、知识检索、SQL 生成校验、只读查询与结果解读的工作流。</p><div class="fc-tags"><i>Agent</i><i>NL2SQL</i><i>RAG</i></div><span class="fc-open">查看案例 ↗</span></button>
     </div>
+  </section>
+
+  <!-- ================= ARCHITECTURE & SOLUTION DIAGRAMS ================= -->
+  <section id="diagrams">
+    <div class="sec-head reveal">
+      <div class="sec-num">04A</div><h2>架构与方案图</h2><div class="rule"></div><div class="en">ARCHITECTURE / BUSINESS FLOW / TECHNICAL DESIGN</div>
+    </div>
+    <p class="diagram-intro reveal">将代表项目中的数据链路、业务流程与技术实现方式转化为可视化方案，帮助访客快速理解项目的业务范围、系统关系和关键设计。以下为基于实际项目经历整理的逻辑示意图，并非生产环境部署截图。</p>
+    <div class="diagram-stack">
+      <article class="diagram-panel reveal">
+        <div class="diagram-head"><div><span class="diagram-kicker">01 / ENTERPRISE DATA PLATFORM</span><h3>企业数据仓库与数据产品架构</h3><p>多源业务数据统一接入，经分层加工、主题建模与指标治理后，支撑经营分析和数据产品。</p></div><span class="diagram-chip">0 → 1 数据平台</span></div>
+        <div class="diagram-lanes">
+          <div class="diagram-lane"><b>电商平台</b><span>淘宝 · 抖音 · 快手等</span></div><div class="diagram-lane"><b>企业业务系统</b><span>ERP · 供应链 · 仓储</span></div><div class="diagram-lane"><b>经营支持系统</b><span>财务 · 售后 · CRM</span></div><div class="diagram-lane"><b>外部与自研数据</b><span>API · 数据文件 · 内部系统</span></div>
+        </div>
+        <div class="diagram-flow"><div class="diagram-node"><strong>数据接入</strong><small>API / Python / 数据同步</small></div><span class="diagram-arrow">›</span><div class="diagram-node"><strong>ODS 原始层</strong><small>源数据落地与留存</small></div><span class="diagram-arrow">›</span><div class="diagram-node"><strong>DWD 明细层</strong><small>清洗、标准化、明细建模</small></div><span class="diagram-arrow">›</span><div class="diagram-node"><strong>DWS 主题层</strong><small>主题汇总、公共维度</small></div><span class="diagram-arrow">›</span><div class="diagram-node core"><strong>ADS 应用层</strong><small>指标结果、业务数据集</small></div></div>
+        <div class="diagram-flow" style="margin-top:12px"><div class="diagram-node em"><strong>Apache Doris</strong><small>分析型数据存储与查询</small></div><span class="diagram-arrow">›</span><div class="diagram-node em"><strong>数据产品与 BI</strong><small>经营看板 · 专题分析 · 数据服务</small></div><span class="diagram-arrow">›</span><div class="diagram-node em"><strong>业务决策应用</strong><small>多部门经营分析与管理支持</small></div></div>
+        <div class="diagram-foot"><span>调度：DolphinScheduler</span><span>加工：SQL / Python / API</span><span>数据仓库：Apache Doris</span><span>7 个业务主题域</span><span>6–10 个分析看板</span></div>
+        <p class="diagram-sub">平台治理横向贯穿：数据标准、指标口径、质量校验、任务调度、运行监控、补数与重跑。</p>
+      </article>
+
+      <article class="diagram-panel reveal">
+        <div class="diagram-head"><div><span class="diagram-kicker">02 / SUPPLY CHAIN DIGITALIZATION</span><h3>珠凌供应链业务流程图</h3><p>围绕商品、采购、入库质检、库存、销售履约与成本数据，梳理业务环节和系统数据关系。</p></div><span class="diagram-chip">业务流程 / 数据链路</span></div>
+        <div class="diagram-row">
+          <div class="diagram-step"><em>01 / MASTER</em><b>商品主数据</b><small>商品编码、规格、分类、供应商关联</small></div>
+          <div class="diagram-step"><em>02 / PURCHASE</em><b>采购计划与订单</b><small>采购需求、供应商、采购价格</small></div>
+          <div class="diagram-step"><em>03 / INBOUND</em><b>入库与质检</b><small>到货登记、质检结果、入库数量</small></div>
+          <div class="diagram-step"><em>04 / INVENTORY</em><b>库存管理</b><small>库存变化、库位、批次与状态</small></div>
+          <div class="diagram-step"><em>05 / FULFILL</em><b>销售与出库</b><small>销售订单、拣货、出库、物流</small></div>
+          <div class="diagram-step"><em>06 / ANALYTICS</em><b>成本与经营分析</b><small>采购成本、库存周转、履约情况</small></div>
+        </div>
+        <div class="diagram-foot"><span>关键主线：商品编码贯穿采购、库存与销售</span><span>关键数据：供应商 / 采购价 / 库存 / 订单 / 成本</span><span>参与重点：流程梳理、数据需求、产品方案、看板及研发协同</span></div>
+      </article>
+
+      <article class="diagram-panel reveal">
+        <div class="diagram-head"><div><span class="diagram-kicker">03 / PRODUCT TRACEABILITY</span><h3>珠宝「一物一证」业务流程</h3><p>建立商品与鉴定证书的关联关系，支持仓库扫码绑定、重复校验与后续查询追溯。</p></div><span class="diagram-chip">0 → 1 产品设计</span></div>
+        <div class="diagram-row">
+          <div class="diagram-step"><em>01 / SCAN</em><b>扫描商品码</b><small>识别商品唯一编码并读取商品信息</small></div>
+          <div class="diagram-step"><em>02 / VERIFY</em><b>扫描证书码</b><small>获取证书编号及证书信息</small></div>
+          <div class="diagram-step"><em>03 / CHECK</em><b>异常校验</b><small>校验商品、证书是否已绑定或重复使用</small></div>
+          <div class="diagram-step"><em>04 / BIND</em><b>建立绑定关系</b><small>保存商品与证书的关联数据</small></div>
+          <div class="diagram-step"><em>05 / QUERY</em><b>客服查询</b><small>按商品或证书信息检索</small></div>
+          <div class="diagram-step"><em>06 / TRACE</em><b>订单追溯</b><small>核对订单商品与对应证书</small></div>
+        </div>
+        <div class="diagram-foot"><span>核心对象：商品</span><span>核心对象：证书</span><span>核心关系：一物一证绑定</span><span>异常控制：重复绑定校验</span><span>应用场景：仓库作业 / 客服查询 / 订单追溯</span></div>
+      </article>
+
+      <article class="diagram-panel reveal">
+        <div class="diagram-head"><div><span class="diagram-kicker">04 / AI DATA ANALYSIS AGENT</span><h3>AI 数据分析 Agent 技术方案</h3><p>以自然语言作为入口，结合业务语义知识、元数据检索、SQL 生成与只读执行，形成可控的数据问答链路。</p></div><span class="diagram-chip">试点应用 / 只读查询</span></div>
+        <div class="diagram-flow"><div class="diagram-node"><strong>自然语言提问</strong><small>周报 / 指标问答 / 自由查询</small></div><span class="diagram-arrow">›</span><div class="diagram-node"><strong>意图与语义识别</strong><small>指标、维度、时间、筛选条件</small></div><span class="diagram-arrow">›</span><div class="diagram-node"><strong>知识与元数据检索</strong><small>指标定义、表结构、字段关系</small></div><span class="diagram-arrow">›</span><div class="diagram-node"><strong>SQL 生成</strong><small>结合上下文生成查询语句</small></div><span class="diagram-arrow">›</span><div class="diagram-node core"><strong>SQL 校验</strong><small>语法 / 权限 / 只读安全约束</small></div></div>
+        <div class="diagram-flow" style="margin-top:12px"><div class="diagram-node em"><strong>Doris 只读查询</strong><small>受控执行数据查询</small></div><span class="diagram-arrow">›</span><div class="diagram-node em"><strong>结果处理与分析</strong><small>数据整理、趋势与异常解释</small></div><span class="diagram-arrow">›</span><div class="diagram-node em"><strong>业务结果呈现</strong><small>表格、结论、可下载结果</small></div></div>
+        <div class="diagram-foot"><span>知识增强：RAG</span><span>自然语言转 SQL：NL2SQL</span><span>数据引擎：Doris</span><span>安全边界：只读执行</span><span>试点验收集：50+ 用例</span></div>
+        <p class="diagram-sub">治理闭环：用户反馈与验收用例用于持续检查和优化；准确率目标作为验收门槛，不将目标值表述为已达成成果。</p>
+      </article>
+
+      <article class="diagram-panel reveal">
+        <div class="diagram-head"><div><span class="diagram-kicker">05 / UNIFIED BUSINESS RECONCILIATION</span><h3>统一经营模型与「三套账」核算关系</h3><p>将平台成交、财务回款和门店出货三类数据建立关联，形成统一的订单与商品核算基础。</p></div><span class="diagram-chip">经营数据治理</span></div>
+        <div class="diagram-lanes"><div class="diagram-lane"><b>平台成交数据</b><span>订单 / 商品 / 成交金额</span></div><div class="diagram-lane"><b>财务回款数据</b><span>收款 / 退款 / 实际回款</span></div><div class="diagram-lane"><b>门店出货数据</b><span>出货 / 商品 / 数量</span></div><div class="diagram-lane"><b>统一关联规则</b><span>订单映射 / 商品映射 / 状态</span></div></div>
+        <div class="diagram-flow"><div class="diagram-node"><strong>多源数据清洗</strong><small>字段标准化、异常处理</small></div><span class="diagram-arrow">›</span><div class="diagram-node"><strong>订单与商品关联</strong><small>跨系统匹配、映射关系</small></div><span class="diagram-arrow">›</span><div class="diagram-node core"><strong>统一经营明细模型</strong><small>成交、回款、出货关联核算</small></div><span class="diagram-arrow">›</span><div class="diagram-node em"><strong>经营指标分析</strong><small>差异核对、经营结果分析</small></div></div>
+        <div class="diagram-foot"><span>核心问题：三类数据原本相互独立</span><span>建设重点：统一关联键与统计口径</span><span>应用方向：经营核算与管理分析</span></div>
+      </article>
+    </div>
+    <article class="diagram-panel reveal bank-panel">
+      <div class="diagram-head"><div><span class="diagram-kicker">06 / BANK CUSTOMER INSIGHT & PRECISION MARKETING</span><h3>银行客户标签体系与精准营销架构</h3><p>以行内数据中台提供的客户基础数据为起点，通过数据采集、指标加工与标签构建，融合基础标签形成客户分群，并结合营销方案支持精准营销。</p></div><span class="diagram-chip">银行客户经营</span></div>
+      <div class="diagram-lanes bank-sources">
+        <div class="diagram-lane"><b>客户信息</b><span>客户基础资料与属性</span></div>
+        <div class="diagram-lane"><b>客户流水</b><span>客户交易与行为流水</span></div>
+        <div class="diagram-lane"><b>客户基础标签</b><span>行内已有基础标签</span></div>
+      </div>
+      <div class="bank-stage-label"><span>数据采集与指标加工</span><i></i></div>
+      <div class="diagram-flow bank-flow">
+        <div class="diagram-node"><strong>基础数据采集</strong><small>从行内数据中台获取数据</small></div><span class="diagram-arrow">›</span>
+        <div class="diagram-node"><strong>数据整理与加工</strong><small>按业务分析口径处理基础数据</small></div><span class="diagram-arrow">›</span>
+        <div class="diagram-node core"><strong>统计指标加工</strong><small>形成客户分析所需指标</small></div>
+      </div>
+      <div class="bank-stage-label"><span>客户标签构建与融合</span><i></i></div>
+      <div class="bank-tag-grid">
+        <div class="bank-tag-card"><b>业务标签</b><small>基于统计指标加工</small></div>
+        <div class="bank-tag-card"><b>消费标签</b><small>基于统计指标加工</small></div>
+        <div class="bank-tag-card"><b>趋向标签</b><small>基于统计指标加工</small></div>
+      </div>
+      <div class="bank-merge"><span>新加工的业务 / 消费 / 趋向标签</span><b>＋</b><span>行内客户基础标签</span><i>融合形成客户标签视图</i></div>
+      <div class="diagram-flow bank-flow bank-outcomes">
+        <div class="diagram-node core"><strong>客户分群</strong><small>结合多维标签识别客群</small></div><span class="diagram-arrow">›</span>
+        <div class="diagram-node"><strong>营销方案匹配</strong><small>根据目标客群配置营销策略</small></div><span class="diagram-arrow">›</span>
+        <div class="diagram-node em"><strong>精准营销</strong><small>输出目标客户群与营销支持</small></div>
+      </div>
+      <div class="diagram-foot"><span>数据基础：行内数据中台</span><span>加工重点：统计指标与客户标签</span><span>业务应用：客户分群与精准营销</span></div>
+      <p class="diagram-sub">项目逻辑说明：图中按“基础数据 → 指标 → 标签 → 客户分群 → 营销方案 → 精准营销”呈现核心链路；具体指标口径、标签规则、分群算法及营销渠道以各银行项目实际配置为准。</p>
+    </article>
+    <p class="diagram-note">说明：以上图示为根据项目经历抽象的业务与技术逻辑，展示本人参与的规划、设计、数据建模、产品方案和协同实施内容。具体系统部署拓扑、接口协议、字段级数据模型及生产环境配置以项目实际文档为准。</p>
   </section>
 
   <!-- ================= PROJECTS ================= -->
